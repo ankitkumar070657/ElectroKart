@@ -10,10 +10,10 @@ const Card = (curEle) => {
     
    
 
-    <div className='flex flex-wrap'>
+    <div className='flex flex-wrap hover:scale-105 duration-300 sm:w-4/5'>
     <div className='border-2 '>
      <figure>
-     <img className="h-[200px] "  src={fimage} alt={name} />
+     <img className=" w-full h-[200px]  rounded-lg "  src={fimage} alt={name} />
      <div className="flex flex-wrap justify-between">
           
           <figcaption className="col-spsan-2 font-bold "><h5>{name}</h5></figcaption>

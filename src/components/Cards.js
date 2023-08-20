@@ -7,21 +7,6 @@ import FormatPrice from './FormatPrice';
 const Cards = () => {
     const { products } = useProductContext();
    
-//   const[foods, setFoods]=useState(mealData)
-//   const filterCat =(category) => {
-//     setFoods(
-//       mealData.filter((item)=>{
-//         return item.category === category; 
-//       })
-//     )
-
-//   }
-
-// <button onClick={()=>setFoods(mealData)} className='m-1 px-2 border-2 rounded-full border-orange-700 text-white bg-orange-700 hover:bg-white hover:text-orange-700 hover:border-orange-700'>All</button>
-// <button onClick={()=>filterCat("pizza")} className='m-1 px-2 border-2 rounded-full border-orange-700 text-white bg-orange-700 hover:bg-white hover:text-orange-700 hover:border-orange-700'>Pizza</button>
-// <button onClick={()=>filterCat("chicken")} className='m-1 px-2 border-2 rounded-full border-orange-700 text-white bg-orange-700 hover:bg-white hover:text-orange-700 hover:border-orange-700'>Chicken</button>
-// <button onClick={()=>filterCat("salad")} className='m-1 px-2 border-2 rounded-full border-orange-700 text-white bg-orange-700 hover:bg-white hover:text-orange-700 hover:border-orange-700'>Salad</button>
-
   return (
     <div className='max-w-[1520px] m-auto px-4  py-2'>
     <h1 className='text-[#6173a1] font-bold text-2xl text-center py-2'>
