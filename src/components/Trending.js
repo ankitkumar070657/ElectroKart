@@ -9,7 +9,7 @@ import { useProductContext } from '../context/productcontext';
   return (
     <>
    
-    <h1 className=' hidden sm:block items-center text-[#6173a1] font-bold text-2xl text-center py-2 '>Trending</h1>
+    <h1 className=' hidden sm:block items-center text-[#6173a1] font-bold text-2xl text-center py-2 mt-8'>Trending Products </h1>
     <div className= 'hidden sm:flex  max-w-[1500px] m-auto  py-2 px-2'>
     <Splide options={{ perPage: 3, gap:"0.5rem", garg:'free', arrow: false}}>
     {
