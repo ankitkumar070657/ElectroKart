@@ -25,9 +25,9 @@ const Cart = () => {
   
   const checkoutHandler = async (amount) => {
     
-    const { data: { key } } = await axios.get("http://www.localhost:4000/api/getkey")
+    const { data: { key } } = await axios.get(process.env.REACT_APP_KEY)
 
-    const { data: { order } } = await axios.post("http://localhost:4000/api/checkout", {amount})
+    const { data: { order } } = await axios.post(process.env.REACT_APP_CHECKOUT, {amount})
 
     const options = {
         key,
@@ -37,7 +37,7 @@ const Cart = () => {
         description: "Tutorial of RazorPay",
         image: "https://i.pinimg.com/originals/a8/d8/74/a8d87426b58493d790150b46707a65e6.jpg",
         order_id: order.id,
-        callback_url: "http://localhost:4000/api/paymentverification",
+        callback_url: process.env.REACT_APP_VERIFI,
         prefill: {
             name: "",
             email: "gaurav.kumar@example.com",
