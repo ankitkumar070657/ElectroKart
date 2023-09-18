@@ -9,7 +9,6 @@ const Cart = () => {
   
   const { cart, clearCart, total_price, shipping_fee } = useCartContext();
   
-  console.log(shipping_fee);
   if (cart.length === 0) {
     return (
       <div className=" mx-auto mt-[5rem]  sm:h-[400px] md:h-[500px] lg:h-[600px] ">
@@ -26,7 +25,6 @@ const Cart = () => {
   const checkoutHandler = async (amount) => {
     
     const { data: { key } } = await axios.get(process.env.REACT_APP_KEY)
-console.log(process.env.REACT_APP_KEY);
     const { data: { order } } = await axios.post(process.env.REACT_APP_CHECKOUT, {amount})
 
     const options = {
