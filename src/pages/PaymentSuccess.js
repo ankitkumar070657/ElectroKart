@@ -19,7 +19,7 @@ const PaymentSuccess = () => {
                 <span  className='mt-2 border 2px bg-green-400  p-1'> Order Successfull</span>
                 <p  className='mb-4'></p>
               <span  className='mt-2 border 2px bg-blue-400  p-1'>  Reference No: {referenceNum}</span> <p className='mb-4'></p>
-              <a href=' http://localhost:3000/' className=' border 2px bg-sky-400 rounded-full p-1'>  Back to Store</a>
+              <a href='https://electro-kart.vercel.app/' className=' border 2px bg-sky-400 rounded-full p-1'>  Back to Store</a>
               
               </div>
            
