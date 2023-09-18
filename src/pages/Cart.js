@@ -26,7 +26,7 @@ const Cart = () => {
   const checkoutHandler = async (amount) => {
     
     const { data: { key } } = await axios.get(process.env.REACT_APP_KEY)
-
+console.log(process.env.REACT_APP_KEY);
     const { data: { order } } = await axios.post(process.env.REACT_APP_CHECKOUT, {amount})
 
     const options = {
