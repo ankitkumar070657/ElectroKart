@@ -12,6 +12,7 @@ import ProductDetails from "./pages/ProductDetails";
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import Help from './pages/Help';
+import PaymentSuccess from './pages/PaymentSuccess';
 
 
     
@@ -23,6 +24,7 @@ import Help from './pages/Help';
           <Navbar/>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/paymentsuccess" element={<PaymentSuccess />} />
             <Route path="/About" element={<About />} />
             <Route path="/Contact" element={<Contact />} />
             <Route path="/Products" element={<Products />} />

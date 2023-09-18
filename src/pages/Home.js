@@ -9,7 +9,7 @@ export default function Home() {
 
   const {isLoading}=useProductContext();
   if (isLoading) {
-    return <div> <img className=" m-auto" src={loadingImg} alt="Loading..." /><h1 className='font-bold text-2xl my-12'>Fetching Data From API.....</h1></div>;
+    return <div> <img className=" m-auto" src={loadingImg} alt="Loading..." /><h1 className='font-bold text-2xl my-12'>Loading...</h1></div>;
   }
   return (
     <div>
