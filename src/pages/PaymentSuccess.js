@@ -14,7 +14,7 @@ const PaymentSuccess = () => {
 
     return (
        
-           <div className='my-[20vh] sm:my-[30vh]'>
+           <div className='my-[22vh] sm:my-[30vh]'>
 
                 <span  className='mt-2 border 2px bg-green-400  p-1'> Order Successfull</span>
                 <p  className='mb-4'></p>
