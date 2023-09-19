@@ -5,8 +5,9 @@ import { NavLink } from "react-router-dom";
 import FormatPrice from "../components/FormatPrice";
 import emptyCartimg from "../assets/emptyCart.jpg";
 import Brands from "../components/Brands";
+import { useAuth0 } from "@auth0/auth0-react";
 const Cart = () => {
-  
+  const { loginWithRedirect, logout,isAuthenticated, user  } = useAuth0();
   const { cart, clearCart, total_price, shipping_fee } = useCartContext();
   
   if (cart.length === 0) {
@@ -129,38 +130,27 @@ const Cart = () => {
                 </td>
               </tr>
 
-              <tr>
-             
-              <td className="border border-slate-700 bg-green-400">
-             
-                <button className=" btn-clear"  onClick={() => checkoutHandler(total_price) } >
-                  Pay Now
-                </button>
-              </td>
-            </tr>
-
-              <tr>
-                <td className="border border-slate-700 bg-red-400">
-                  <button className=" btn-clear" onClick={clearCart}>
-                    clear cart
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td className="border border-slate-700 bg-blue-400">
-                  <NavLink to="/Products">
-                    <button className="btn btn-green">
-                      {" "}
-                      continue Shopping{" "}
-                    </button>
-                  </NavLink>
-                </td>
-              </tr>
+              
             </tbody>
           </table>
+        
+        <div className="flex flex-row gap-2 my-3 justify-end">
+        {isAuthenticated ?(
+          <button className="flex bg-green-500 text-white    items-center p-2 rounded-full hover:scale-105 duration-300"  onClick={() => checkoutHandler(total_price) } >
+          <p className="font-bold text-grey-500 ">Pay Now</p>
+          </button>):(<button  className="flex bg-green-500 text-white items-center p-2 rounded-full hover:scale-105 duration-300 "
+          onClick={() => loginWithRedirect()}><p className="font-bold text-grey-500 ">Log In & Pay</p></button>
+            )
+        }
+
+        <button className=" flex bg-red-500 text-white    items-center p-2 rounded-full hover:scale-105 duration-300" onClick={clearCart}><p className="font-bold text-grey-500">clear cart</p></button>
         </div>
-      </div>
-      <Brands />
+        <div className="flex justify-end px-2">
+        <NavLink to="/Products"><button className="flex bg-[#6173a1] text-white    items-center p-2 rounded-full hover:scale-105 duration-300"><p className="font-bold text-grey"> continue Shopping</p></button></NavLink>
+        </div>
+        </div>
+        </div>
+        <Brands />
     </>
   );
 };
