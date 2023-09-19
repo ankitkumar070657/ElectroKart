@@ -6,10 +6,17 @@ import reportWebVitals from './reportWebVitals';
 import { AppProvider } from './context/productcontext'
 import { CartProvider } from './context/cartcontext'
 import { FilterProvider } from './context/filtercontext'
-
+import { Auth0Provider } from '@auth0/auth0-react';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+  <Auth0Provider
+    domain="dev-allen-rio-77.us.auth0.com"
+    clientId="VRuLXAbR7t7kcXU5X3qhvoYuHz9IY1J8"
+    authorizationParams={{
+      redirect_uri: window.location.origin
+    }}
+  >
   <AppProvider>
   <FilterProvider>
   <CartProvider>
@@ -17,6 +24,7 @@ root.render(
     </CartProvider>
     </FilterProvider>
     </AppProvider>
+    </Auth0Provider>
   </React.StrictMode>
 );
 

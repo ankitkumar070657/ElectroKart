@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@auth0/auth0-react": "^2.2.1",
     "@formspree/react": "^2.5.0",
     "@heroicons/react": "^2.0.18",
     "@splidejs/react-splide": "^0.7.12",

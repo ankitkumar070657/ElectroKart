@@ -2,7 +2,9 @@ import React from "react";
 import Brands from "../components/Brands";
 import { useForm, ValidationError } from "@formspree/react";
 import { NavLink } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 function Contact() {
+  const { isAuthenticated, user  } = useAuth0();
   const [state, handleSubmit] = useForm("xoqoezqy");
   if (state.succeeded) {
     return (
@@ -34,6 +36,7 @@ function Contact() {
               type="text"
               name="text"
               placeholder="Enter your name"
+              value={isAuthenticated ? user.name :""}
             />
 
             <input
@@ -43,6 +46,7 @@ function Contact() {
               type="email"
               name="email"
               placeholder="Enter your email-id"
+              value={isAuthenticated ? user.email :""}
             />
             <ValidationError
               prefix="Email"

@@ -1,18 +1,18 @@
 
 import {NavLink } from "react-router-dom";
 import React, { useState } from "react";
-
+import { useAuth0 } from "@auth0/auth0-react";
 import {
   AiOutlineMenu,
   AiOutlineShoppingCart,
   AiOutlineClose,
-  AiFillTag,
 } from "react-icons/ai";
 import {FcHome, FcAbout, FcContacts} from 'react-icons/fc'
 
 import { BsFillCartFill, BsPerson } from "react-icons/bs";
 
 const Navbar = () => {
+  const { loginWithRedirect, logout,isAuthenticated, user  } = useAuth0();
   const [SideNav, setSideNav] = useState(false);
   return (
     <div className=" m-auto flex justify-between items-center p-4  ">
@@ -23,29 +23,49 @@ const Navbar = () => {
         <h1 className="text-2xl sm:text-3xl lg:text-4xl px-2">
           Electro<span className="text-[#6173a1] font-bold">Kart</span>
         </h1>
-        <div className="hidden lg:flex item-center bg-gray-200 rounded-full p-1 text-[14px]">
-          <p className="bg-[#6173a1] text-white rounded-full p-2 text-bold ">
-            Quick
-          </p>
-          <p className="text-bold p-2 gap-5">Delivery</p>
-        </div>
-        <div className=" hidden sm:flex items-center  mx-2 px-2 w-[200px] sm:w-[400px] lg:w-[500px]   ">
+        <div className=" hidden md:flex items-center  mx-2 px-2 max-w-[200px] sm:w-[400px] lg:w-[500px]   ">
         <nav>
         <ul className="flex gap-10 bg-slate-100 p-4 rounded-full cursor-pointer">
-          <li className="mx-2 hover:underline "><NavLink to="/">Home</NavLink></li>
-          <li className="mx-2 hover:underline"><NavLink to="/Products">Products</NavLink></li>
-          <li className="hidden lg:block mx-2 hover:underline"><NavLink to="/About">About</NavLink></li>
-          <li className="hidden lg:block mx-2 hover:underline"><NavLink to="/Contact">Contact</NavLink></li>
+        <li className="hidden md:block mx-2 hover:underline "><NavLink to="/">Home</NavLink></li>
+        <li className="hidden md:block mx-2 hover:underline"><NavLink to="/Products">Products</NavLink></li>
+        <li className="hidden xl:block mx-2 hover:underline"><NavLink to="/About">About</NavLink></li>
+        <li className="hidden md:block mx-2 hover:underline"><NavLink to="/Contact">Contact</NavLink></li>
         </ul>
         </nav>
         </div>
-      </div>
-      <NavLink to="/Cart">
-      <button className="bg-[#6173a1] text-white   flex items-center p-2 rounded-full  ">
-        <BsFillCartFill size={20} />
+        </div>
+
+
+        <div className="flex gap-2">
         
-       Cart
-      </button></NavLink>
+        <div className="hidden lg:flex item-center bg-gray-200 rounded-full p-1 text-[14px]">
+          <p className="bg-[#6173a1] text-white rounded-full p-2 text-bold ">
+            Welcome
+          </p>
+          <p className="text-bold p-2 gap-5">  {isAuthenticated ? <p> {user.name}</p> :<p>Guest User</p>}</p>
+        </div>
+        
+        
+        
+          {isAuthenticated ? (
+           
+            <button className="bg-[#6173a1] text-white   flex  items-center  p-2 rounded-full  " onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>  Log Out
+            </button>
+          ):(
+
+            <button  className="bg-[#6173a1] text-white   flex  items-center p-2 rounded-full  " onClick={() => loginWithRedirect()}>Log In</button>
+          )}
+      
+
+          <NavLink to="/Cart">
+          <button className="hidden sm:flex bg-[#6173a1] text-white    items-center p-2 rounded-full  ">
+          <BsFillCartFill size={20} />Cart</button></NavLink>
+          </div>
+
+         
+
+
+
       {SideNav ? (
         <div className="bg-black/60 fixed w-full h-screen z-10 top-0 left-0" onClick={()=>setSideNav(!SideNav)}></div>
       ) : (
