@@ -9,7 +9,7 @@ import {
 } from "react-icons/ai";
 import {FcHome, FcAbout, FcContacts} from 'react-icons/fc'
 
-import { BsFillCartFill, BsPerson } from "react-icons/bs";
+import { BsFillCartFill, BsBox2HeartFill, BsPerson } from "react-icons/bs";
 
 const Navbar = () => {
   const { loginWithRedirect, logout,isAuthenticated, user  } = useAuth0();
@@ -42,15 +42,15 @@ const Navbar = () => {
           <p className="bg-[#6173a1] text-white rounded-full p-2 text-bold ">
             Welcome
           </p>
-          <p className="text-bold p-2 gap-5">  {isAuthenticated ? <p> {user.name}</p> :<p>Guest User</p>}</p>
+          <p className="text-bold p-2 gap-5">  {isAuthenticated ? <p>{user.name}</p> :<p>Guest User</p>}</p>
         </div>
         
-        
+       
         
           {isAuthenticated ? (
            
             <button className="bg-[#6173a1] text-white   flex  items-center  p-2 rounded-full  " onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>  Log Out
-            </button>
+            </button> 
           ):(
 
             <button  className="bg-[#6173a1] text-white   flex  items-center p-2 rounded-full  " onClick={() => loginWithRedirect()}>Log In</button>
@@ -86,7 +86,14 @@ const Navbar = () => {
         <h2 className="text-2xl p-4 ">Electro<span className="text-[#6173a1] font-bold">Kart</span></h2>
         <nav>
         <ul className="flex flex-col p-4 text-gray-900">
-        
+
+        <div className="flex item-center bg-gray-200 rounded-full p-1 text-[14px]">
+        <p className="bg-[#6173a1] text-white rounded-full p-2 text-bold ">Welcome</p>
+        <p className="text-bold p-2 gap-5">  {isAuthenticated ? <p>{user.name}</p> :<p>Guest User</p>}</p>
+        </div>
+      
+
+
         <NavLink to="/" onClick={() => setSideNav(!SideNav)}>
         <li className="text-xl py-4 flex  hover:bg-blue-100 rounded-full px-2">
         <FcHome size={25}
@@ -95,13 +102,22 @@ const Navbar = () => {
         </li>
         </NavLink>
 
-        <NavLink to="/products" onClick={() => setSideNav(!SideNav)}>
+        <NavLink to="/Cart" onClick={() => setSideNav(!SideNav)}>
         <li className="text-xl py-4 flex  hover:bg-blue-100 rounded-full px-2">
         <AiOutlineShoppingCart size={25}
         className='mr-4 text-gray-900  rounded-full'/>
+        Cart
+        </li>
+        </NavLink>
+
+        <NavLink to="/products" onClick={() => setSideNav(!SideNav)}>
+        <li className="text-xl py-4 flex  hover:bg-blue-100 rounded-full px-2">
+        <BsBox2HeartFill size={25}
+        className='mr-4 text-gray-700  '/>
         Products
         </li>
         </NavLink>
+
 
         
         <NavLink to="/About" onClick={() => setSideNav(!SideNav)}>
@@ -126,6 +142,8 @@ const Navbar = () => {
         className='mr-4 text-gray-900  rounded-full'/>
         Help
         </li>
+        
+       
         </NavLink>
 
         </ul>

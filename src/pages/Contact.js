@@ -29,6 +29,9 @@ function Contact() {
           >
             <p className="font-bold mb-10">Contact Us</p>
 
+
+           
+
             <input
               required
               className="my-4 rounded-full px-2 text-center justify-center items-center"
@@ -66,7 +69,7 @@ function Contact() {
               errors={state.errors}
             />
             <button
-              className="border-2 rounded-full px-2"
+              className="border-2 rounded-full px-2 hover:bg-[#6173a1] hover:font-bold "
               type="submit"
               disabled={state.submitting}
             >
