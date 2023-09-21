@@ -45,6 +45,16 @@ const Navbar = () => {
           <p className="text-bold p-2 gap-5">  {isAuthenticated ? <p>{user.name}</p> :<p>Guest User</p>}</p>
         </div>
         
+
+        <NavLink to="/Cart">
+          <button className=" flex bg-[#6173a1] text-white    items-center p-2 rounded-full sm:hidden ">
+          <BsFillCartFill size={20} /></button></NavLink>
+          
+
+
+          <NavLink to="/Cart">
+          <button className="hidden sm:flex bg-[#6173a1] text-white    items-center p-2 rounded-full  ">
+          <BsFillCartFill size={20} />Cart</button></NavLink>
        
         
           {isAuthenticated ? (
@@ -57,9 +67,8 @@ const Navbar = () => {
           )}
       
 
-          <NavLink to="/Cart">
-          <button className="hidden sm:flex bg-[#6173a1] text-white    items-center p-2 rounded-full  ">
-          <BsFillCartFill size={20} />Cart</button></NavLink>
+
+          
           </div>
 
          
