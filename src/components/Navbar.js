@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <div className=" m-auto flex justify-between items-center p-4  ">
       <div className="flex items-center">
-        <div onClick={() => setSideNav(!SideNav)} className=" mb-2 cursor-pointer shadow-xl ">
+        <div onClick={() => setSideNav(!SideNav)} className=" mb-1 cursor-pointer shadow-xl ">
           <AiOutlineMenu size={25} />
         </div>
         <h1 className="text-2xl sm:text-3xl lg:text-4xl px-2">
