@@ -17,11 +17,11 @@ const Navbar = () => {
   return (
     <div className=" m-auto flex justify-between items-center p-4  ">
       <div className="flex items-center">
-        <div onClick={() => setSideNav(!SideNav)} className="cursor-pointer shadow-xl ">
+        <div onClick={() => setSideNav(!SideNav)} className=" mb-2 cursor-pointer shadow-xl ">
           <AiOutlineMenu size={25} />
         </div>
         <h1 className="text-2xl sm:text-3xl lg:text-4xl px-2">
-          Electro<span className="text-[#6173a1] font-bold">Kart</span>
+        <NavLink to="/"> Electro<span className="text-[#6173a1] font-bold">Kart</span></NavLink>
         </h1>
         <div className=" hidden md:flex items-center  mx-2 px-2 max-w-[200px] sm:w-[400px] lg:w-[500px]   ">
         <nav>
@@ -90,7 +90,7 @@ const Navbar = () => {
         <AiOutlineClose
           onClick={() => setSideNav(!SideNav)}
           size={25}
-          className=" absolute right-4 top-4 cursor-pointer"
+          className=" absolute right-2 top-2 cursor-pointer"
         />
         <h2 className="text-2xl p-4 ">Electro<span className="text-[#6173a1] font-bold">Kart</span></h2>
         <nav>
